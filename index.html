@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Club‑Vintage Thika | Drinks • Music • Vibes</title>
+  <meta name="description" content="Club‑Vintage Thika — premium nightlife. Book VIP, buy tickets, view events, gallery, menu & more." />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              900: '#0a0a13',
+              800: '#111126',
+              700: '#181836',
+              600: '#1f1f47',
+              500: '#2a2a6f',
+              neon: '#7a5cff',
+              pink: '#ff2ea6',
+              lime: '#a3ff12'
+            }
+          },
+          boxShadow: {
+            glow: '0 0 0 4px rgba(122,92,255,0.25)',
+            neon: '0 10px 40px rgba(122,92,255,0.35)'
+          },
+          backgroundImage: {
+            grid: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root { --ring: rgba(122,92,255,0.35); }
+    .glass { backdrop-filter: blur(10px); background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.1); }
+    .neon-text { text-shadow: 0 0 8px rgba(122,92,255,0.9), 0 0 16px rgba(122,92,255,0.6); }
+    .neon-ring { box-shadow: 0 0 0 3px rgba(122,92,255,0.25); }
+    .hide-scroll::-webkit-scrollbar { display: none; }
+    .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+
+<body class="bg-brand-900 text-white selection:bg-brand-neon/30 selection:text-white">
+  <!-- ===== Promo Video Header (19) ===== -->
+  <header class="relative h-[70vh] min-h-[520px] w-full overflow-hidden">
+    <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline poster="https://images.pexels.com/photos/2747440/pexels-photo-2747440.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+      <source src="https://cdn.coverr.co/videos/coverr-nightclub-5179/1080p.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-brand-800/60 to-brand-900"></div>
+
+    <nav class="relative z-10 max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-white/10 grid place-items-center ring-1 ring-white/20">
+          <span class="font-black tracking-widest">CV</span>
+        </div>
+        <p class="font-semibold">Club‑Vintage Thika</p>
+      </div>
+      <div class="hidden md:flex gap-6 text-sm">
+        <a href="#events" class="hover:underline">Events</a>
+        <a href="#reserve" class="hover:underline">VIP/Table</a>
+        <a href="#menu" class="hover:underline">Menu</a>
+        <a href="#gallery" class="hover:underline">Gallery</a>
+        <a href="#djs" class="hover:underline">DJs</a>
+        <a href="#members" class="hover:underline">Members</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="toggleDark" class="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm">Dark/Neon</button>
+        <a href="#reserve" class="bg-brand-neon/90 hover:bg-brand-neon text-white px-4 py-2 rounded-xl shadow-neon text-sm">Reserve</a>
+      </div>
+    </nav>
+
+    <div class="relative z-10 h-full grid place-items-center text-center px-6">
+      <div>
+        <h1 class="text-4xl sm:text-6xl font-black tracking-tight neon-text">Drink • Dance • Repeat</h1>
+        <p class="mt-4 max-w-2xl mx-auto text-white/80">Premium nightlife in the heart of Thika. Book VIP, buy tickets, and never miss a vibe.</p>
+        <div class="mt-6 flex items-center justify-center gap-3">
+          <a href="#tickets" class="px-5 py-3 rounded-2xl bg-brand-pink hover:bg-pink-600 shadow-neon">Buy Tickets</a>
+          <a href="#events" class="px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20">Upcoming Events</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Floating WhatsApp (3) -->
+  <a href="https://wa.me/254791353785?text=Hi%20Club‑Vintage%20Thika%2C%20I%20want%20to%20book%20a%20table" target="_blank" class="fixed bottom-5 right-5 z-50 rounded-full p-4 bg-green-500 hover:bg-green-600 shadow-lg" title="Chat on WhatsApp">
+    <!-- WhatsApp icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.01 0C5.39 0 .01 5.37.01 11.98c0 2.11.55 4.16 1.6 5.98L0 24l6.2-1.6a11.95 11.95 0 0 0 5.8 1.48h.01c6.61 0 11.99-5.38 11.99-12 0-3.2-1.25-6.2-3.48-8.4zM12 21.5c-1.9 0-3.75-.5-5.37-1.45l-.39-.23-3.68.95.98-3.58-.25-.37A9.53 9.53 0 0 1 2.5 12C2.5 6.76 6.77 2.5 12 2.5a9.47 9.47 0 0 1 9.5 9.5c0 5.24-4.27 9.5-9.5 9.5zm5.44-7.5c-.3-.15-1.77-.88-2.05-.98-.27-.1-.47-.15-.66.16-.2.3-.76.98-.93 1.17-.17.2-.34.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.88-.78-1.47-1.74-1.64-2.03-.17-.3-.02-.46.13-.6.13-.12.3-.32.45-.48.15-.17.2-.28.3-.47.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.2-.24-.57-.48-.5-.66-.5h-.56c-.19 0-.5.07-.76.37-.26.3-1 1-1 2.44s1.03 2.83 1.18 3.03c.15.2 2.03 3.1 4.9 4.34.68.29 1.22.46 1.63.59.69.22 1.31.19 1.8.11.55-.08 1.77-.72 2.02-1.41.25-.69.25-1.28.17-1.41-.09-.13-.27-.2-.57-.35z"/></svg>
+  </a>
+
+  <!-- ===== Promotions & Happy Hour (17) ===== -->
+  <section class="relative py-14 bg-brand-800">
+    <div class="absolute inset-0 bg-grid bg-[size:36px_36px]"></div>
+    <div class="relative max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass p-6 rounded-2xl">
+          <p class="text-sm text-white/70">Every Thu • 7–10 PM</p>
+          <h3 class="text-2xl font-bold">Happy Hour: 2‑for‑1 Cocktails</h3>
+          <p class="text-white/80 mt-2">Classic mojitos, margaritas & signature mixes.</p>
+        </div>
+        <div class="glass p-6 rounded-2xl">
+          <p class="text-sm text-white/70">Fridays</p>
+          <h3 class="text-2xl font-bold">Ladies’ Night + Free Entry</h3>
+          <p class="text-white/80 mt-2">Free entry before 10 PM. VIP discounts.</p>
+        </div>
+        <div class="glass p-6 rounded-2xl">
+          <p class="text-sm text-white/70">Monthly</p>
+          <h3 class="text-2xl font-bold">Secret Members‑Only Party</h3>
+          <p class="text-white/80 mt-2">Unlock in Members Area.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Event Calendar (1) & Ticketing (5) ===== -->
+  <section id="events" class="py-16 bg-brand-900">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <h2 class="text-3xl font-bold">Upcoming Events</h2>
+        <div class="flex gap-2">
+          <input id="eventSearch" type="text" placeholder="Search events..." class="px-3 py-2 rounded-lg bg-white/10 placeholder-white/50">
+          <a href="#tickets" class="px-4 py-2 rounded-xl bg-brand-neon/90 hover:bg-brand-neon">Buy Tickets</a>
+        </div>
+      </div>
+
+      <div id="eventList" class="mt-8 grid md:grid-cols-3 gap-6"></div>
+
+      <div id="calendar" class="mt-8 glass rounded-2xl p-4">
+        <h3 class="font-semibold mb-3">Mini Calendar</h3>
+        <div id="calendarGrid" class="grid grid-cols-7 gap-2 text-center text-sm"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Reservation (2) & Deposit (15) ===== -->
+  <section id="reserve" class="py-16 bg-brand-800">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
+      <div class="glass p-6 rounded-2xl">
+        <h2 class="text-3xl font-bold">Book a Table / VIP</h2>
+        <p class="text-white/70 mt-1">Secure your spot — optional deposit to reduce no‑shows.</p>
+        <form id="reserveForm" class="mt-6 grid gap-4">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <input required name="name" placeholder="Full Name" class="px-3 py-2 rounded-lg bg-white/10 placeholder-white/60">
+            <input required name="phone" placeholder="Phone (M‑Pesa)" class="px-3 py-2 rounded-lg bg-white/10 placeholder-white/60">
+          </div>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <input required type="date" name="date" class="px-3 py-2 rounded-lg bg-white/10">
+            <input required type="time" name="time" class="px-3 py-2 rounded-lg bg-white/10">
+            <select name="section" class="px-3 py-2 rounded-lg bg-white/10">
+              <option>Regular</option>
+              <option>VIP Booth</option>
+              <option>Balcony</option>
+            </select>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <input required type="number" name="guests" min="1" value="2" class="px-3 py-2 rounded-lg bg-white/10" placeholder="# Guests">
+            <select name="occasion" class="px-3 py-2 rounded-lg bg-white/10">
+              <option>Night Out</option>
+              <option>Birthday</option>
+              <option>Bachelor/ette</option>
+            </select>
+            <select name="deposit" class="px-3 py-2 rounded-lg bg-white/10">
+              <option value="0">No Deposit</option>
+              <option value="500">KES 500</option>
+              <option value="1000">KES 1,000</option>
+              <option value="2000">KES 2,000</option>
+            </select>
+          </div>
+          <textarea name="notes" rows="3" placeholder="Notes (preferred table, special requests)" class="px-3 py-2 rounded-lg bg-white/10"></textarea>
+          <div class="flex items-center gap-3">
+            <button class="px-5 py-3 rounded-xl bg-brand-neon/90 hover:bg-brand-neon" type="submit">Request Reservation</button>
+            <button id="payDeposit" class="px-5 py-3 rounded-xl bg-brand-pink hover:bg-pink-600" type="button">Pay Deposit</button>
+          </div>
+          <p id="reserveMsg" class="text-sm text-white/70"></p>
+        </form>
+      </div>
+
+      <div class="glass p-6 rounded-2xl">
+        <h3 class="text-xl font-semibold">Why deposits help</h3>
+        <ul class="mt-3 space-y-2 text-white/80 list-disc list-inside">
+          <li>Guarantees your table during peak hours.</li>
+          <li>Reduces no‑shows so everyone gets a fair chance.</li>
+          <li>Fully deductible from your bill on arrival.</li>
+        </ul>
+        <div class="mt-6">
+          <img src="https://images.pexels.com/photos/1304473/pexels-photo-1304473.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=450&w=800" class="rounded-xl object-cover w-full h-56" alt="VIP Booth" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Drink Menu (14) ===== -->
+  <section id="menu" class="py-16 bg-brand-900">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between flex-wrap gap-3">
+        <h2 class="text-3xl font-bold">Futuristic Drink Menu</h2>
+        <div class="flex gap-2">
+          <input id="menuSearch" placeholder="Search cocktails..." class="px-3 py-2 rounded-lg bg-white/10 placeholder-white/50" />
+          <select id="menuFilter" class="px-3 py-2 rounded-lg bg-white/10">
+            <option value="all">All</option>
+            <option value="cocktail">Cocktails</option>
+            <option value="beer">Beer</option>
+            <option value="spirit">Spirits</option>
+            <option value="nonalcoholic">Non‑Alcoholic</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="menuGrid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- ===== DJ / Artist Lineup (6) + Playlist (12) ===== -->
+  <section id="djs" class="py-16 bg-brand-800">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold">Resident DJs & Guest Artists</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="glass p-4 rounded-2xl">
+          <img src="https://images.pexels.com/photos/2806135/pexels-photo-2806135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=450&w=800" class="rounded-xl h-52 w-full object-cover" alt="DJ Nova" />
+          <div class="mt-3">
+            <h3 class="text-xl font-semibold">DJ Nova</h3>
+            <p class="text-white/70">Afrobeats • Amapiano • House</p>
+            <iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293"></iframe>
+          </div>
+        </div>
+        <div class="glass p-4 rounded-2xl">
+          <img src="https://images.pexels.com/photos/167377/pexels-photo-167377.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=450&w=800" class="rounded-xl h-52 w-full object-cover" alt="DJ Kiki" />
+          <div class="mt-3">
+            <h3 class="text-xl font-semibold">DJ Kiki</h3>
+            <p class="text-white/70">Hip‑Hop • Dancehall</p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0XUsuxWHRQd" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          </div>
+        </div>
+        <div class="glass p-4 rounded-2xl">
+          <img src="https://images.pexels.com/photos/2746827/pexels-photo-2746827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=450&w=800" class="rounded-xl h-52 w-full object-cover" alt="MC Blaze" />
+          <div class="mt-3">
+            <h3 class="text-xl font-semibold">MC Blaze</h3>
+            <p class="text-white/70">Hype • Voice of the Night</p>
+            <iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/512"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Gallery (4) & After‑Party Upload (18) ===== -->
+  <section id="gallery" class="py-16 bg-brand-900">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between flex-wrap gap-3">
+        <h2 class="text-3xl font-bold">Event Photo Gallery</h2>
+        <div class="flex items-center gap-2">
+          <label class="cursor-pointer px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20">
+            Upload Your Photos
+            <input id="photoUpload" type="file" accept="image/*" multiple class="hidden" />
+          </label>
+          <button id="downloadAll" class="px-4 py-2 rounded-xl bg-brand-neon/90 hover:bg-brand-neon">Download All</button>
+        </div>
+      </div>
+      <div id="galleryGrid" class="mt-8 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </div>
+  </section>
+
+  <!-- ===== Members & Loyalty (9,10) + Notifications (8) ===== -->
+  <section id="members" class="py-16 bg-brand-800">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10">
+      <div class="glass p-6 rounded-2xl">
+        <h2 class="text-3xl font-bold">Membership & Loyalty</h2>
+        <p class="text-white/70 mt-1">Create a profile, earn points, unlock VIP perks.</p>
+        <form id="memberForm" class="mt-6 grid gap-3">
+          <input name="fullName" placeholder="Full Name" class="px-3 py-2 rounded-lg bg-white/10">
+          <input name="email" type="email" placeholder="Email" class="px-3 py-2 rounded-lg bg-white/10">
+          <button class="px-5 py-3 rounded-xl bg-brand-neon/90 hover:bg-brand-neon" type="submit">Save Profile</button>
+          <p id="memberMsg" class="text-sm text-white/70"></p>
+        </form>
+        <div class="mt-6">
+          <div class="flex items-center justify-between">
+            <p>Your Points:</p>
+            <p id="points" class="text-2xl font-black">0</p>
+          </div>
+          <div class="mt-3 flex gap-3">
+            <button id="earn10" class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20">+10 pts</button>
+            <button id="redeem" class="px-4 py-2 rounded-lg bg-brand-pink hover:bg-pink-600">Redeem</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass p-6 rounded-2xl">
+        <h3 class="text-2xl font-semibold">Get Event Alerts</h3>
+        <p class="text-white/70">Subscribe for email/SMS notifications.</p>
+        <form id="subscribeForm" class="mt-4 grid sm:grid-cols-2 gap-3">
+          <input name="subEmail" type="email" placeholder="Email" class="px-3 py-2 rounded-lg bg-white/10">
+          <input name="subPhone" placeholder="Phone (optional)" class="px-3 py-2 rounded-lg bg-white/10">
+          <button class="sm:col-span-2 px-5 py-3 rounded-xl bg-brand-neon/90 hover:bg-brand-neon" type="submit">Subscribe</button>
+          <p id="subscribeMsg" class="text-sm text-white/70 sm:col-span-2"></p>
+        </form>
+
+        <div class="mt-6 p-4 rounded-xl bg-white/5">
+          <h4 class="font-semibold">Members‑Only Access</h4>
+          <p class="text-white/70">Enter your member PIN to reveal exclusive events.</p>
+          <div class="mt-3 flex gap-2">
+            <input id="pin" maxlength="4" placeholder="1234" class="px-3 py-2 rounded-lg bg-white/10 w-28 text-center">
+            <button id="unlock" class="px-4 py-2 rounded-lg bg-brand-pink hover:bg-pink-600">Unlock</button>
+          </div>
+          <div id="secret" class="hidden mt-4 p-4 rounded-lg bg-black/40">
+            <p>🎫 Early‑bird tickets available Friday 10 AM. Code: <span class="font-mono">VNTG‑ELITE</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Virtual Tour (13) & Social (16) ===== -->
+  <section class="py-16 bg-brand-900">
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-8 items-start">
+      <div class="glass rounded-2xl overflow-hidden">
+        <div class="aspect-video">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/H1B6sT4uJ0Y?si=virtualtour&rel=0&controls=1" title="360° Club Tour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">360° Virtual Tour</h3>
+          <p class="text-white/70">Get a feel of the lights, the booths, and the dance floor.</p>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div class="glass p-4 rounded-2xl">
+          <h3 class="text-xl font-semibold">Instagram Reels</h3>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cx1of7NoWQ9/" data-instgrm-version="14"></blockquote>
+          <script async src="https://www.instagram.com/embed.js"></script>
+        </div>
+        <div class="glass p-4 rounded-2xl">
+          <h3 class="text-xl font-semibold">TikTok</h3>
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@scout2015/video/6718335390845095173" data-video-id="6718335390845095173" style="max-width: 605px;min-width: 325px;"> <section> <a target="_blank" title="@scout2015" href="https://www.tiktok.com/@scout2015">@scout2015</a></section> </blockquote>
+          <script async src="https://www.tiktok.com/embed.js"></script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Map & Directions (11) ===== -->
+  <section id="contact" class="py-16 bg-brand-800">
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-8 items-start">
+      <div class="glass p-6 rounded-2xl">
+        <h2 class="text-3xl font-bold">Find Us</h2>
+        <p class="text-white/70">Kenyatta Highway, Thika Town • Open Wed–Sun from 6 PM</p>
+        <div class="mt-4 aspect-video rounded-xl overflow-hidden">
+          <iframe class="w-full h-full" src="https://www.google.com/maps?q=Thika%2C%20Kenya&output=embed" loading="lazy"></iframe>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a target="_blank" href="https://maps.google.com/?q=Club%20Vintage%20Thika" class="px-4 py-2 rounded-xl bg-brand-neon/90 hover:bg-brand-neon">Get Directions</a>
+          <a href="tel:+254791353785" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20">Call Us</a>
+          <a href="mailto:bookings@clubvintage.co.ke" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20">Email</a>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div id="tickets" class="glass p-6 rounded-2xl">
+          <h3 class="text-2xl font-semibold">Online Ticketing</h3>
+          <p class="text-white/70">Pay via M‑Pesa, Card, or PayPal.</p>
+          <div class="mt-4 grid sm:grid-cols-3 gap-4">
+            <button class="px-4 py-3 rounded-xl bg-brand-pink hover:bg-pink-600" data-ticket="1500">Standard — KES 1,500</button>
+            <button class="px-4 py-3 rounded-xl bg-brand-neon/90 hover:bg-brand-neon" data-ticket="2500">VIP — KES 2,500</button>
+            <button class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20" data-ticket="4000">Table — From KES 4,000</button>
+          </div>
+          <p id="ticketMsg" class="text-sm text-white/70 mt-3"></p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl">
+          <h3 class="text-2xl font-semibold">QR: Book or Join VIP</h3>
+          <div class="mt-3 grid grid-cols-2 gap-3">
+            <img id="qrReserve" class="rounded-xl" alt="QR Reserve" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fclubvintage.co.ke%2Freserve" />
+            <img id="qrVip" class="rounded-xl" alt="QR VIP" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fclubvintage.co.ke%2Fvip" />
+          </div>
+        </div>
+
+        <div class="glass p-6 rounded-2xl">
+          <h3 class="text-2xl font-semibold">AI Chatbot (FAQ)</h3>
+          <div class="mt-3 space-y-2">
+            <div class="flex gap-2">
+              <input id="botInput" placeholder="Ask (dress code, age, hours)..." class="flex-1 px-3 py-2 rounded-lg bg-white/10" />
+              <button id="botAsk" class="px-4 py-2 rounded-lg bg-brand-neon/90 hover:bg-brand-neon">Ask</button>
+            </div>
+            <div id="botReply" class="text-white/80 text-sm p-3 bg-black/30 rounded-lg min-h-12"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer & Pixels (20) ===== -->
+  <footer class="bg-black/60 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-6">
+      <div>
+        <h4 class="font-semibold">Club‑Vintage Thika</h4>
+        <p class="text-white/70 text-sm mt-2">© <span id="year"></span> All Rights Reserved.</p>
+        <p class="text-white/50 text-xs mt-1">A project by CV Nightlife LTD.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Hours</h4>
+        <p class="text-white/70 text-sm mt-2">Wed–Sun: 6 PM – 4 AM</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Policies</h4>
+        <p class="text-white/70 text-sm mt-2">Smart casual dress. 18+ only (ID required). Respectful conduct enforced.</p>
+      </div>
+    </div>
+
+    <!-- Google Analytics & Meta Pixel placeholders (paste real tags here) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-XXXXXXX');
+    </script>
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)}; if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0;n.version='2.0'; n.queue=[];t=b.createElement(e);t.async=!0; t.src=v;s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', 'YOUR_PIXEL_ID'); fbq('track', 'PageView');
+    </script>
+    -->
+  </footer>
+
+  <!-- ===== Scripts ===== -->
+  <script>
+    // Global state
+    const state = {
+      events: [
+        { id: 1, title: 'Amapiano Fridays', date: '2025-10-17', time: '21:00', price: 1500, tag: 'party' },
+        { id: 2, title: 'Afrobeats Night ft. DJ Nova', date: '2025-10-18', time: '20:30', price: 2000, tag: 'live' },
+        { id: 3, title: 'Halloween Neon Bash', date: '2025-10-31', time: '21:00', price: 2500, tag: 'festival' },
+        { id: 4, title: 'Old Skool Saturday', date: '2025-11-01', time: '20:00', price: 1200, tag: 'party' },
+      ],
+      menu: [
+        { name: 'Neon Mojito', type: 'cocktail', price: 700, img: 'https://images.pexels.com/photos/4051732/pexels-photo-4051732.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400', ingredients: 'White rum, mint, lime, soda' },
+        { name: 'Galaxy Margarita', type: 'cocktail', price: 800, img: 'https://images.pexels.com/photos/5946970/pexels-photo-5946970.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400', ingredients: 'Tequila, triple sec, lime' },
+        { name: 'Classic Lager', type: 'beer', price: 350, img: 'https://images.pexels.com/photos/1267684/pexels-photo-1267684.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400', ingredients: '5% ABV' },
+        { name: 'Premium Whiskey', type: 'spirit', price: 900, img: 'https://images.pexels.com/photos/301692/pexels-photo-301692.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400', ingredients: 'Neat / on the rocks' },
+        { name: 'Zero‑Proof Spritz', type: 'nonalcoholic', price: 500, img: 'https://images.pexels.com/photos/5538233/pexels-photo-5538233.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400', ingredients: 'Aperitif syrup, soda, orange' },
+        { name: 'Aged Rum', type: 'spirit', price: 850, img: 'https://images.pexels.com/photos/60061/whiskey-glass-drink-spirits-60061.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400', ingredients: '12‑year' },
+      ],
+      gallery: [
+        'https://images.pexels.com/photos/2747440/pexels-photo-2747440.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400',
+        'https://images.pexels.com/photos/2747441/pexels-photo-2747441.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400',
+        'https://images.pexels.com/photos/2746830/pexels-photo-2746830.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400',
+        'https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400'
+      ]
+    }
+
+    // Utils
+    const qs = (s, el=document) => el.querySelector(s)
+    const qsa = (s, el=document) => [...el.querySelectorAll(s)]
+
+    // Year
+    qs('#year').textContent = new Date().getFullYear()
+
+    // Dark/Neon toggle (Bonus)
+    qs('#toggleDark').addEventListener('click', () => document.body.classList.toggle('invert'))
+
+    // Render Events
+    function renderEvents(list) {
+      const wrap = qs('#eventList');
+      wrap.innerHTML = list.map(e => `
+        <article class="glass rounded-2xl overflow-hidden">
+          <div class="p-5"> 
+            <p class="text-sm text-white/60">${new Date(e.date).toDateString()} • ${e.time}</p>
+            <h3 class="text-xl font-semibold mt-1">${e.title}</h3>
+            <p class="text-white/70 mt-2">From KES ${e.price.toLocaleString()}</p>
+            <div class="mt-4 flex gap-2">
+              <button class="px-4 py-2 rounded-lg bg-brand-neon/90 hover:bg-brand-neon" data-buy="${e.id}">Buy Ticket</button>
+              <button class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20" data-rsvp="${e.id}">RSVP</button>
+            </div>
+          </div>
+        </article>
+      `).join('')
+    }
+    renderEvents(state.events)
+
+    // Event search
+    qs('#eventSearch').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase()
+      const filtered = state.events.filter(ev => ev.title.toLowerCase().includes(q))
+      renderEvents(filtered)
+    })
+
+    // Mini Calendar
+    function renderCalendar() {
+      const now = new Date();
+      const y = now.getFullYear(), m = now.getMonth()
+      const first = new Date(y, m, 1).getDay()
+      const days = new Date(y, m+1, 0).getDate()
+      const grid = []
+      for (let i=0; i<first; i++) grid.push('')
+      for (let d=1; d<=days; d++) grid.push(d)
+      const el = qs('#calendarGrid')
+      el.innerHTML = ['S','M','T','W','T','F','S'].map(x=>`<div class="text-white/50">${x}</div>`).join('') +
+        grid.map(d => {
+          const has = state.events.some(ev => new Date(ev.date).getDate()===d && new Date(ev.date).getMonth()===m)
+          return `<div class="py-2 rounded-lg ${has? 'bg-brand-neon/30 ring-1 ring-brand-neon/40' : 'bg-white/5'}">${d||''}</div>`
+        }).join('')
+    }
+    renderCalendar()
+
+    // Ticketing buttons (5)
+    qsa('[data-ticket]').forEach(btn => btn.addEventListener('click', (e) => {
+      const amount = e.currentTarget.getAttribute('data-ticket')
+      qs('#ticketMsg').textContent = `Selected ticket: KES ${Number(amount).toLocaleString()} — proceed to checkout.`
+      // TODO: Integrate real checkout: M‑Pesa STK push / Stripe / PayPal
+    }))
+
+    // Inline RSVP & Buy
+    document.addEventListener('click', (e) => {
+      const buyId = e.target.getAttribute?.('data-buy')
+      const rsvpId = e.target.getAttribute?.('data-rsvp')
+      if (buyId) { qs('#ticketMsg').textContent = `Buying for event #${buyId} → open checkout.` }
+      if (rsvpId) { window.location.hash = '#reserve' }
+    })
+
+    // Reservation form (2,15)
+    qs('#reserveForm').addEventListener('submit', (e) => {
+      e.preventDefault()
+      const data = Object.fromEntries(new FormData(e.target).entries())
+      qs('#reserveMsg').textContent = `Thanks ${data.name}! We\u2019ll confirm ${data.section} for ${data.guests} on ${data.date} at ${data.time}.`
+      // TODO: Send to backend; send WhatsApp/SMS confirmation
+    })
+    qs('#payDeposit').addEventListener('click', () => {
+      const amount = qs('[name=deposit]').value
+      if (Number(amount) > 0) {
+        alert(`Initiate payment of KES ${amount} via M‑Pesa STK push (placeholder).`)
+        // TODO: Trigger STK push API
+      } else {
+        alert('Select a deposit amount first.')
+      }
+    })
+
+    // Menu filtering (14)
+    function renderMenu(list){
+      qs('#menuGrid').innerHTML = list.map(i=>`
+        <div class="glass rounded-2xl overflow-hidden">
+          <img src="${i.img}" alt="${i.name}" class="w-full h-44 object-cover" />
+          <div class="p-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-semibold">${i.name}</h3>
+              <span class="text-white/70">KES ${i.price}</span>
+            </div>
+            <p class="text-white/60 text-sm mt-1">${i.ingredients}</p>
+            <div class="mt-3 flex gap-2">
+              <button class="px-3 py-2 rounded-lg bg-brand-neon/90 hover:bg-brand-neon">Add</button>
+              <button class="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20">Details</button>
+            </div>
+          </div>
+        </div>`).join('')
+    }
+    renderMenu(state.menu)
+
+    qs('#menuSearch').addEventListener('input', (e)=>{
+      const q = e.target.value.toLowerCase()
+      const filtered = state.menu.filter(m => m.name.toLowerCase().includes(q))
+      renderMenu(filtered)
+    })
+    qs('#menuFilter').addEventListener('change', (e)=>{
+      const v = e.target.value
+      const filtered = v==='all'? state.menu : state.menu.filter(m => m.type===v)
+      renderMenu(filtered)
+    })
+
+    // Gallery (4,18)
+    function renderGallery(){
+      const grid = qs('#galleryGrid')
+      const all = state.gallery
+      grid.innerHTML = all.map((url,i)=>`
+        <figure class="relative group">
+          <img src="${url}" class="rounded-xl w-full h-48 object-cover" alt="Event photo ${i+1}" />
+          <a download href="${url}" class="absolute bottom-2 right-2 text-xs px-2 py-1 rounded bg-black/60">Download</a>
+        </figure>`).join('')
+    }
+    renderGallery()
+
+    qs('#photoUpload').addEventListener('change', (e)=>{
+      [...e.target.files].forEach(file=>{
+        const reader = new FileReader()
+        reader.onload = () => { state.gallery.unshift(reader.result); renderGallery() }
+        reader.readAsDataURL(file)
+      })
+    })
+    qs('#downloadAll').addEventListener('click', ()=>{
+      alert('For bulk download, we\'ll zip photos on the server (placeholder).')
+      // TODO: Implement server-side zip
+    })
+
+    // Membership (9) + Exclusive (10)
+    const store = {
+      get: (k, d=null) => JSON.parse(localStorage.getItem(k) || JSON.stringify(d)),
+      set: (k, v) => localStorage.setItem(k, JSON.stringify(v))
+    }
+    const profile = store.get('cv_profile', { name:'', email:'', points: 0, pin: '1234' })
+    function syncProfile(){
+      qs('#points').textContent = profile.points
+    }
+    syncProfile()
+
+    qs('#memberForm').addEventListener('submit', (e)=>{
+      e.preventDefault()
+      const d = Object.fromEntries(new FormData(e.target).entries())
+      profile.name = d.fullName; profile.email = d.email
+      store.set('cv_profile', profile)
+      qs('#memberMsg').textContent = 'Profile saved locally. (Connect backend to persist).'
+    })
+    qs('#earn10').addEventListener('click', ()=>{ profile.points += 10; store.set('cv_profile', profile); syncProfile() })
+    qs('#redeem').addEventListener('click', ()=>{
+      if (profile.points >= 50) { profile.points -= 50; alert('Redeemed 50 pts → Free cocktail!'); }
+      else { alert('Need 50+ points to redeem.') }
+      store.set('cv_profile', profile); syncProfile()
+    })
+
+    qs('#unlock').addEventListener('click', ()=>{
+      const pin = qs('#pin').value.trim()
+      if (pin === profile.pin) { qs('#secret').classList.remove('hidden') }
+      else { alert('Wrong PIN. Ask staff to reset.') }
+    })
+
+    // Notifications (8)
+    qs('#subscribeForm').addEventListener('submit', (e)=>{
+      e.preventDefault()
+      const d = Object.fromEntries(new FormData(e.target).entries())
+      qs('#subscribeMsg').textContent = `Subscribed: ${d.subEmail || ''} ${d.subPhone ? ' • SMS enabled' : ''}`
+      // TODO: Send to mailing/SMS service
+    })
+
+    // Simple AI Chatbot (Bonus)
+    const FAQ = {
+      'dress': 'Smart casual. No slippers or gym shorts. Caps allowed before 11PM. Theme nights may vary.',
+      'age': '18+ only. National ID or Passport required at the door.',
+      'hours': 'Open Wed–Sun, 6 PM – 4 AM. Last entry 2:30 AM.',
+      'tickets': 'Buy online in the Tickets section or at the door (subject to capacity).',
+      'vip': 'VIP booths seat 4–6. Reserve in the Table/VIP section; deposits recommended on weekends.'
+    }
+    function botAnswer(q){
+      const t = q.toLowerCase()
+      if (t.includes('dress')) return FAQ.dress
+      if (t.includes('age')) return FAQ.age
+      if (t.includes('hour') || t.includes('open')) return FAQ.hours
+      if (t.includes('ticket')) return FAQ.tickets
+      if (t.includes('vip') || t.includes('table')) return FAQ.vip
+      return 'We\u2019ll get back to you shortly — use WhatsApp for instant replies.'
+    }
+    qs('#botAsk').addEventListener('click', ()=>{
+      const q = qs('#botInput').value.trim()
+      if (!q) return
+      qs('#botReply').textContent = botAnswer(q)
+    })
+  </script>
+</body>
+</html>
